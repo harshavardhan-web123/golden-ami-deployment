@@ -1,0 +1,28 @@
+          Base EC2 Instance (Configured)
+          ─────────────────────────────
+          Web Server (Apache/httpd)
+          Application Installed
+          index.html Created
+                    │
+                    ▼
+             Create AMI (Golden AMI)
+                    │
+                    ▼
+          ─────────────────────────────
+
+              Golden AMI (Reusable Image)
+                    │
+        ┌───────────┼───────────┐
+        ▼                       ▼
+  EC2 Instance 1          EC2 Instance 2
+   (Web Server)            (Web Server)
+        │                       │
+        ▼                       ▼
+  Start httpd              Start httpd
+        │                       │
+        ▼                       ▼
+  Web App Output         Web App Output
+
+          ─────────────────────────────
+                Private S3 Bucket
+          (Optional Storage / Backup)
