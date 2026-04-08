@@ -1,0 +1,41 @@
+Explanation of Architecture
+🔹 1. Base EC2 Instance
+Initial server where:
+Apache (httpd) is installed
+Web application is configured
+Acts as the master template
+🔹 2. Golden AMI (Amazon Machine Image)
+Image created from configured EC2 instance
+Contains:
+OS
+Installed software
+Application files
+
+👉 This ensures same configuration everywhere
+
+🔹 3. Multiple EC2 Instances
+Created using the Golden AMI
+Example:
+Webserver 1
+Webserver 2
+
+👉 All instances are identical
+
+🔹 4. Web Servers (Apache)
+Each EC2 instance runs Apache
+Hosts the same application
+🔹 5. Application Access
+Each instance has a public IP
+Users can access the application via browser
+🔹 6. Private S3 Bucket (Optional)
+Used for:
+Backup
+Storing files
+Not directly part of deployment flow
+🔥 Key Features of This Architecture
+
+✅ Consistent server configuration
+✅ Faster deployment of instances
+✅ Reusability using AMI
+✅ Scalable infrastructure
+✅ Reduced manual setup
